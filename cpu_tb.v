@@ -20,21 +20,19 @@ module cpu_tb;
     end
     initial begin
         // === Load program into memory ===
-      uut.memory[0]   = 8'h11; 
-      uut.memory[1]   = 8'h22; 
-      uut.memory[2]   = 8'h99; 
-      uut.memory[3]   = 8'h53; 
-      uut.memory[4]   = 8'h13; 
-      uut.memory[5]   = 8'hDB;
-      uut.memory[6]   = 8'hDB;
-      uut.memory[7]   = 8'h99; 
-      uut.memory[8]   = 8'h53; 
-      uut.memory[9]   = 8'hC4;
-      uut.memory[10] = 8'hC4;
-      uut.memory[11] = 8'hCB;
-       // === Load variables into memory ===
-      uut.memory[17] = 8'd5; 
-      uut.memory[18] = 8'd1;  
+        uut.memory[0]   = 8'h11; 
+        uut.memory[1]   = 8'h22; 
+        uut.memory[2]   = 8'h99; 
+        uut.memory[3]   = 8'h53; 
+        uut.memory[4]   = 8'h13; 
+        uut.memory[5]   = 8'hD9;
+        uut.memory[6]   = 8'h99; 
+        uut.memory[7]   = 8'h53; 
+        uut.memory[8]   = 8'hC4;
+        uut.memory[9]   = 8'hC9;
+       	// === Load variables into memory ===
+        uut.memory[17]  = 8'd5; 
+        uut.memory[18]  = 8'd1;  
         #10 reset = 0;
 
         #550;

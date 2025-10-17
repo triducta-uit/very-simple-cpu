@@ -8,13 +8,14 @@ module cpu (
     reg jump;
     wire [7:0] PC_next = PC + 1;
     wire [7:0] PC_jump = {4'b0000, imm4};
-    wire [7:0] PC_new = jump?PC_jump:PC_next;
+    wire [7:0] PC_new = ((opcode == 2'd11)&(regfile[regA] == 8'd0))?PC_jump:PC_next;
     wire [7:0] instr = memory[PC];   // đọc lệnh từ bộ nhớ
     wire [1:0] opcode = instr[7:6];    // phân vùng mã lệnh
     wire [1:0] regA   = instr[5:4];      // phân vùng địa chỉ reg đích
     wire [1:0] regB   = instr[3:2];      // phân vùng địa chỉ reg nguồn
     wire [1:0] func   = instr[1:0];      // phân vùng địa chỉ mã chức năng
     wire [3:0] imm4   = instr[3:0];    // phân vùng địa chỉ mem/nhảy
+    
     always @(posedge clk or posedge reset) begin
         if (reset) begin
             PC <= 8'd0;
